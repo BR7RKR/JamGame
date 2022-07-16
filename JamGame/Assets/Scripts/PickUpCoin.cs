@@ -5,32 +5,43 @@ using UnityEngine;
 
 public class PickUpCoin : MonoBehaviour
 {
-    public int FinalXP { get; private set; }
+    public int totalCoins;
+    public int collectedCoins;
+    public float FinalXP { get; private set; }
+    public int level;
 
-    [SerializeField]private GameObject _player;
+    private void Start()
+    {
+        totalCoins = 0;
+        level = 1;
+    }
     
-    private int _amount;
-
     // Update is called once per frame
     void Update()
     {
         CountFinalXP();
+        LevelUp();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Coin"))
         {
-            _amount++;
+            collectedCoins+=5;
+            totalCoins = collectedCoins;
         }
     }
-
-    /// <summary>
-    /// Метод считает итоговое кол-во опыта с монетки
-    /// </summary>
+    
     private void CountFinalXP()
     {
-        FinalXP = _amount;
-        //TODO: придумать формулу
+        FinalXP = level * 80 * 1.25f;
+    }
+    private void LevelUp()
+    {
+        if (collectedCoins >= FinalXP)
+        {
+            level++;
+            collectedCoins = 0;
+        }
     }
 }

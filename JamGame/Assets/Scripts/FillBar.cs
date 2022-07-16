@@ -1,30 +1,34 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using TMPro;
 
 public class FillBar : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private PickUpCoin _Coins; 
-    [SerializeField] private GameObject _fillbar;
-    private Image _filler;
+    [SerializeField] private PickUpCoin _Coins;
+    [SerializeField] private Image _filler;
+    [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private TextMeshProUGUI coinsAmount;
 
-    void Start()
-    {
-        _fillbar.SetActive(true);
-        _filler = _fillbar.transform.GetChild(0).GetComponent<Image>();
-    }
-    
     void Update()
     {
         ChangeStripSize();
+        SetLevelInfo();
     }
 
     private void ChangeStripSize()
     { 
-        _filler.fillAmount = _Coins.FinalXP;
+        _filler.fillAmount = _Coins.collectedCoins/_Coins.FinalXP;
+    }
+
+    private void SetLevelInfo()
+    {
+        levelText.text = "LV:" + _Coins.level.ToString();
+        coinsAmount.text = _Coins.totalCoins.ToString();
     }
 }
