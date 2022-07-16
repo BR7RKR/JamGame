@@ -11,9 +11,11 @@ public class PickUpCoin : MonoBehaviour
     public int level;
 
     [SerializeField] private GameObject levelUpMenu;
+    private Randomizer cardMaster;
 
     private void Start()
     {
+        cardMaster = levelUpMenu.GetComponent<Randomizer>();
         levelUpMenu.SetActive(false);
         totalCoins = 0;
         level = 1;
@@ -31,7 +33,7 @@ public class PickUpCoin : MonoBehaviour
         if (collision.gameObject.CompareTag("Coin"))
         {
             collectedCoins+=5;
-            totalCoins = collectedCoins;
+            totalCoins += 5;
         }
     }
     
@@ -47,6 +49,7 @@ public class PickUpCoin : MonoBehaviour
             collectedCoins = 0;
             Time.timeScale = 0f;
             levelUpMenu.SetActive(true);
+            cardMaster.ShowUpgrades();
         }
     }
 }

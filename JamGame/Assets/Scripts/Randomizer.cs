@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class Randomizer : MonoBehaviour
 {
-    private GameObject[] skills;
-    private GameObject[] rareSkills;
+    [SerializeField] private GameObject[] skills;
+    [SerializeField] private GameObject[] rareSkills;
+    [SerializeField] private Transform[] upgradesPositions;
     private GameObject[] showedSkills;
 
     private void Start()
     {
-        skills = new GameObject[50];
-        rareSkills = new GameObject[15];
         showedSkills = new GameObject[3];
     }
 
@@ -37,6 +37,13 @@ public class Randomizer : MonoBehaviour
 
             if (continueFlag) i++;
         }
+    }
+
+    public void ShowUpgrades()
+    {
+        GetRandom();
+        for(int i=0;i<showedSkills.Length;i++)
+            Instantiate(showedSkills[i], upgradesPositions[i]);
     }
 }
 
