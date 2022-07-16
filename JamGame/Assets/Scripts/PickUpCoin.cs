@@ -10,8 +10,11 @@ public class PickUpCoin : MonoBehaviour
     public float FinalXP { get; private set; }
     public int level;
 
+    [SerializeField] private GameObject levelUpMenu;
+
     private void Start()
     {
+        levelUpMenu.SetActive(false);
         totalCoins = 0;
         level = 1;
     }
@@ -42,6 +45,8 @@ public class PickUpCoin : MonoBehaviour
         {
             level++;
             collectedCoins = 0;
+            Time.timeScale = 0f;
+            levelUpMenu.SetActive(true);
         }
     }
 }

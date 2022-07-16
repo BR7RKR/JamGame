@@ -12,6 +12,7 @@ public class Attack : MonoBehaviour
     [Space(10)]
     [SerializeField] private Transform bulletPositionRotation;
     [SerializeField] private Transform actualBulletPosition;
+    [SerializeField] private Transform head;
 
     private WaitForSeconds AttackTimer;
     private bool isAttacking;
@@ -55,6 +56,7 @@ public class Attack : MonoBehaviour
 
         bulletPositionRotation.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         bulletPositionRotation.transform.localEulerAngles = new Vector3(0, Vector3.SignedAngle(mouseDirection,Vector3.up,Vector3.forward)-90f, 0);
+        head.rotation = bulletPositionRotation.rotation;
     }
     
     

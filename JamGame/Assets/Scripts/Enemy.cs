@@ -5,17 +5,16 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private GameObject mesh;
-    [SerializeField] private GameObject coinPrefab;
-
-    [SerializeField] private Transform target;
-
-    private float health = 5f;
-    private float velocity = 3.5f;
-    private float armor = 1.0f;
-    private float damage = 1.0f;
-    private float attackSpeed = 1.5f;
-    private bool canAttack = false;
+    //[Header("Mesh"), SerializeField] private Transform model;
+    [Header("Target"), SerializeField] private Transform target;
+    
+    [Header("Stats")]
+    [SerializeField] private float health = 5f;
+    [SerializeField] private float velocity = 3.5f;
+    [SerializeField] private float armor = 1.0f;
+    [SerializeField] private float damage = 1.0f;
+    [SerializeField] private float attackSpeed = 1.5f;
+    [SerializeField] private bool canAttack = false;
 
     private void Start()
     {
@@ -25,27 +24,19 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) TakeDamage(3f);
-
         transform.Translate(Vector3.Normalize(target.position - transform.position) * velocity * Time.deltaTime);
-        mesh.transform.rotation = Quaternion.LookRotation(target.position - transform.position);
+        //model.localEulerAngles = new Vector3(0, Vector3.SignedAngle(transform.position,target.position,Vector3.forward), 0);
     }
 
     public void TakeDamage(float damage)
     {
         if (damage - armor > 0)
         {
-            health -= damage - armor;
-
+            health -= damage;
+            
             if (health <= 0)
-                Die();
+                Destroy(gameObject);
         }
-    }
-
-    private void Die()
-    {
-        Instantiate(coinPrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
     }
 
     IEnumerator Attack()
