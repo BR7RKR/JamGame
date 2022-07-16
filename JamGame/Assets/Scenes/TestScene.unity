@@ -1616,6 +1616,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502422104}
   m_CullTransparentMesh: 1
+--- !u!1 &527388284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 19375669980788713, guid: 59221f1d989fe254a8fd4a1deda3127d, type: 3}
+  m_PrefabInstance: {fileID: 1548113045656378048}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &527388286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527388284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0, b: 0, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!4 &543935632 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1548113045220376357, guid: 59221f1d989fe254a8fd4a1deda3127d, type: 3}
@@ -7851,6 +7874,7 @@ GameObject:
   - component: {fileID: 126103799752750719}
   - component: {fileID: 3922592573182048730}
   - component: {fileID: 1264155112155712784}
+  - component: {fileID: 3922592573182048731}
   m_Layer: 0
   m_Name: floor
   m_TagString: Untagged
@@ -8128,6 +8152,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 759931929505475781}
+  m_Mesh: {fileID: -7513297493162946847, guid: 99f930f59a51f884ab67784c4a4e4703, type: 3}
+--- !u!64 &3922592573182048731
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759931929505475781}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
   m_Mesh: {fileID: -7513297493162946847, guid: 99f930f59a51f884ab67784c4a4e4703, type: 3}
 --- !u!1 &5028399292386970093
 GameObject:
