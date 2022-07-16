@@ -3,32 +3,27 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
 public class Enemy : MonoBehaviour
 {
-    private NavMeshAgent agent;
     [Header("Target"), SerializeField] private Transform target;
 
     [Header("Stats")]
     [SerializeField] private float health = 5f;
-    [SerializeField] private float speed = 3.5f;
+    [SerializeField] private float velocity = 3.5f;
     [SerializeField] private float armor = 1.0f;
     [SerializeField] private float damage = 1.0f;
     [SerializeField] private float attackSpeed = 1.5f;
+    [SerializeField] private bool canAttack = false;
 
     private void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        
         if (target == null)
             target = GameObject.FindGameObjectWithTag("Player").transform;
-
-        agent.speed = speed;
     }
 
     private void Update()
     {
-        agent.SetDestination(target.position);
+        transform.Translate(Vector3.Normalize(target.position - transform.position) * velocity * Time.deltaTime);
     }
 
     public void TakeDamage(float damage)
@@ -44,10 +39,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Attack()
     {
-        NavMeshAgent TAgent = target.GetComponent<NavMeshAgent>();
-
-        while (target != null &&
-            (Vector2.Distance(target.position, agent.transform.position) - (agent.radius + TAgent.radius)) <= 0.5f)
+        while (canAttack && target != null)
         {
             Debug.Log("Минус " + damage + "хп.");
             yield return new WaitForSeconds(attackSpeed);
@@ -58,7 +50,15 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")) 
         {
+            canAttack = true;
             StartCoroutine(Attack());
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            canAttack = false;
         }
     }
 }
