@@ -9146,6 +9146,7 @@ GameObject:
   - component: {fileID: 3922592573182048730}
   - component: {fileID: 1264155112155712784}
   - component: {fileID: 3922592573182048731}
+  - component: {fileID: 3922592573182048732}
   m_Layer: 0
   m_Name: floor
   m_TagString: Untagged
@@ -9312,7 +9313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1548113044368525703, guid: 59221f1d989fe254a8fd4a1deda3127d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 1548113044368525703, guid: 59221f1d989fe254a8fd4a1deda3127d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9377,7 +9378,7 @@ PrefabInstance:
     - target: {fileID: 1548113044368525706, guid: 59221f1d989fe254a8fd4a1deda3127d, type: 3}
       propertyPath: bulletPrefab
       value: 
-      objectReference: {fileID: 8137191507197824295, guid: d5a54bbd921284242a9f9a610a0adc4f, type: 3}
+      objectReference: {fileID: 4481365354209492833, guid: 73459567c4404a642b7865cf952bc3eb, type: 3}
     - target: {fileID: 1548113044368525706, guid: 59221f1d989fe254a8fd4a1deda3127d, type: 3}
       propertyPath: actualBulletPosition
       value: 
@@ -9386,6 +9387,14 @@ PrefabInstance:
       propertyPath: bulletPositionRotation
       value: 
       objectReference: {fileID: 543935632}
+    - target: {fileID: 1548113045591136308, guid: 59221f1d989fe254a8fd4a1deda3127d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548113045591136308, guid: 59221f1d989fe254a8fd4a1deda3127d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4332445253616654014, guid: 59221f1d989fe254a8fd4a1deda3127d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -9546,3 +9555,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7513297493162946847, guid: 99f930f59a51f884ab67784c4a4e4703, type: 3}
+--- !u!114 &3922592573182048732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759931929505475781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53053fb0064589e4992b234f4fee5aa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
