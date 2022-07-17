@@ -13,12 +13,25 @@ public class MovePlayer : MonoBehaviour
     [Tooltip("Settings")]
     [SerializeField]private float _velocity = 10f;
 
+    private AudioSource _audioSource;
+
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
-        if(_horizontalInput!=0||_verticalInput!=0)
-            anim.SetBool("IsMoving",true);
+        if (_horizontalInput != 0 || _verticalInput != 0)
+        {
+            anim.SetBool("IsMoving", true);
+            _audioSource.Play();
+        }
         else
-            anim.SetBool("IsMoving",false);
+        {
+            anim.SetBool("IsMoving", false);
+            _audioSource.Stop();
+        }
     }
 
     void FixedUpdate()

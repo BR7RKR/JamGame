@@ -3,10 +3,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private GameObject mesh;
     [SerializeField] private GameObject coinPrefab;
 
+    private AudioSource audioSource;
+
     [SerializeField] private Transform target;
+    private Rigidbody rb;
+    private Vector3 direction;
 
     private float health = 5f;
     private float velocity = 3.5f;
@@ -17,16 +20,24 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        rb = GetComponent<Rigidbody>();
         if (target == null)
             target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) TakeDamage(3f);
+        direction = target.position - transform.position;
+        direction.Normalize();
 
-        transform.Translate(Vector3.Normalize(target.position - transform.position) * velocity * Time.deltaTime);
-        mesh.transform.rotation = Quaternion.LookRotation(target.position - transform.position);
+        Vector3 lookAt = target.position;
+        lookAt.y = transform.position.y;
+        transform.LookAt(lookAt);
+    }
+    private void FixedUpdate()
+    {
+        rb.MovePosition(transform.position + (direction * velocity * Time.deltaTime));
     }
 
     public void TakeDamage(float damage)
@@ -42,6 +53,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        audioSource.Play();
         Instantiate(coinPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
@@ -69,27 +81,5 @@ public class Enemy : MonoBehaviour
         {
             canAttack = false;
         }
-    }
-    
-    public void DoBeforeDestroy()
-    {
-        AddToScore();
-        IncrementEnemiesDefeated();
-    }
-    
-    private void AddToScore()
-    {
-        if (GameManager.instance != null && !GameManager.instance.gameIsOver)
-        {
-            //GameManager.AddScore(scoreValue);
-        }
-    }
-    
-    private void IncrementEnemiesDefeated()
-    {
-        if (GameManager.instance != null && !GameManager.instance.gameIsOver)
-        {
-            GameManager.instance.IncrementEnemiesDefeated();
-        }       
     }
 }

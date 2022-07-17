@@ -5,11 +5,18 @@ using UnityEngine;
 public class GameManager2 : MonoBehaviour
 {
     public static GameManager2 instance = null;
+
+    private AudioSource audioSource;
     public static int coins
     {
         get { return coins; }
         set { coins = value; }
     }
+
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject pausePanel;
+
+    private bool isPaused;
 
     private void Awake()
     {
@@ -22,6 +29,21 @@ public class GameManager2 : MonoBehaviour
     private void Start()
     {
         HandleStartUp();
+        isPaused = false;
+        gameOverPanel.SetActive(false);
+        pausePanel.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+                Continue();
+            else
+                Pause();
+        }
     }
 
     private void HandleStartUp()
@@ -35,6 +57,19 @@ public class GameManager2 : MonoBehaviour
             coins = 0;
             PlayerPrefs.SetInt("coins", 0);
         }
+    }
+
+    public void Pause()
+    {
+        isPaused = true;
+        Time.timeScale = 0.0f;
+        pausePanel.SetActive(true);
+    }
+    public void Continue()
+    {
+        isPaused = false;
+        Time.timeScale = 1.0f;
+        pausePanel.SetActive(false);
     }
 
     public void AddCoins(int scoreValue)
@@ -57,7 +92,9 @@ public class GameManager2 : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("GameOver!");
+        audioSource.Play();
+        Time.timeScale = 0.0f;
+        gameOverPanel.SetActive(true);
     }
 
     private void OnApplicationQuit()

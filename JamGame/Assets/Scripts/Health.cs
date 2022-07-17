@@ -140,7 +140,7 @@ public class Health : MonoBehaviour
             }
             if (gameObject.GetComponent<Enemy>() != null)
             {
-                gameObject.GetComponent<Enemy>().DoBeforeDestroy();
+                //gameObject.GetComponent<Enemy>().DoBeforeDestroy();
             }
             Destroy(this.gameObject);
         }
@@ -154,7 +154,7 @@ public class Health : MonoBehaviour
         }
         if (gameObject.GetComponent<Enemy>() != null)
         {
-            gameObject.GetComponent<Enemy>().DoBeforeDestroy();
+            //gameObject.GetComponent<Enemy>().DoBeforeDestroy();
         }
         Destroy(this.gameObject);
     }
