@@ -13,10 +13,4 @@ public class BulletFly : MonoBehaviour
         transform.position += transform.right * speed * Time.deltaTime;
         Destroy(gameObject,seconds);
     }
-    
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Ground"))
-            Destroy(gameObject);
-    }
 }

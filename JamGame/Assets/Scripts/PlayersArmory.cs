@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 
 public class PlayersArmory : MonoBehaviour
 {
+    [SerializeField] private GameObject gunShooting;
     [SerializeField] private MovePlayer plmv;
     [SerializeField] private Animator anim;
     [SerializeField] private float reloadCooldown = 0f;
@@ -17,6 +18,7 @@ public class PlayersArmory : MonoBehaviour
     {
         cd = new WaitForSeconds(1.66f);
         plmv = GetComponent<MovePlayer>();
+        gunShooting = bullets[Random.Range(0,bullets.Length)];
     }
 
     void Update()
@@ -31,15 +33,16 @@ public class PlayersArmory : MonoBehaviour
     }
     public GameObject DiceRoll()
     {
-        int max = bullets.Length;
-        GameObject ShootingBullet = null;
+        GameObject ShootingBullet = gunShooting;
         if (bullets != null)
         {
             if (reloadsCount > 0)
             {
                 StartCoroutine(AnimationSwapping());
-                ShootingBullet = bullets[Random.Range(0,max)];
+                ShootingBullet = bullets[Random.Range(0,bullets.Length)];
                 reloadsCount--;
+                gunShooting = ShootingBullet;
+                return ShootingBullet;
             }
         }
         return ShootingBullet;

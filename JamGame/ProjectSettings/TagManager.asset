@@ -7,6 +7,7 @@ TagManager:
   - Coin
   - Upgrade
   - Propes
+  - PlayerMesh
   layers:
   - Default
   - TransparentFX
