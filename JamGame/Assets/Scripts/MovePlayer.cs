@@ -15,7 +15,7 @@ public class MovePlayer : MonoBehaviour
 
     void Update()
     {
-        if(_horizontalInput!=0||_verticalInput!=0)
+        if((_horizontalInput!=0||_verticalInput!=0) && !GameManager2.IsGameOver)
             anim.SetBool("IsMoving",true);
         else
             anim.SetBool("IsMoving",false);
@@ -23,7 +23,10 @@ public class MovePlayer : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
+        if (!GameManager2.IsGameOver)
+        {
+            Move();
+        }
     }
 
     private void Move()

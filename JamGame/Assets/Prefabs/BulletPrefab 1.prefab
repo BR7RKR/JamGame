@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 738498277455762672}
   - component: {fileID: 554996740162171686}
   - component: {fileID: 5437935456119667318}
+  - component: {fileID: 5227459505373844357}
   m_Layer: 0
   m_Name: BulletPrefab 1
   m_TagString: Untagged
@@ -104,6 +105,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 25
   seconds: 1
+--- !u!114 &5227459505373844357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4481365354209492833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cadb49f8152e2db4694e446bc041528d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamId: 0
+  damageAmount: 1
+  hitEffect: {fileID: 0}
+  destroyAfterDamage: 1
+  dealDamageOnTriggerEnter: 1
+  dealDamageOnTriggerStay: 0
+  dealDamageOnCollision: 0
 --- !u!1 &8104408592224396118
 GameObject:
   m_ObjectHideFlags: 0
