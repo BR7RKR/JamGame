@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 /// <summary>
@@ -85,7 +86,7 @@ public class Damage : MonoBehaviour
         {
             if (collidedHealth.teamId != this.teamId)
             {
-                collidedHealth.TakeDamage(damageAmount);
+                collidedHealth.TakeDamage(damageAmount+Upgrades.damageAmplify);
                 if (hitEffect != null)
                 {
                     Instantiate(hitEffect, transform.position, transform.rotation, null);

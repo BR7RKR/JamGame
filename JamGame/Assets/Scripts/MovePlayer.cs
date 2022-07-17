@@ -12,7 +12,7 @@ public class MovePlayer : MonoBehaviour
     [SerializeField] private Animator anim;
     
     [Tooltip("Settings")]
-    [SerializeField]private float _velocity = 10f;
+    public float _velocity = 10f;
 
     void Update()
     {
