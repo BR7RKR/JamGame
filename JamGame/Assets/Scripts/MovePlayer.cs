@@ -7,6 +7,7 @@ public class MovePlayer : MonoBehaviour
 {
     private float _horizontalInput;
     private float _verticalInput;
+    private float _borderCordinate = 32;
 
     [SerializeField] private Animator anim;
     
@@ -26,6 +27,7 @@ public class MovePlayer : MonoBehaviour
         if (!GameManager2.IsGameOver)
         {
             Move();
+            KeepInBounds();
         }
     }
 
@@ -36,5 +38,26 @@ public class MovePlayer : MonoBehaviour
         
         transform.Translate(Vector3.left.normalized * _horizontalInput * _velocity * Time.deltaTime);
         transform.Translate(Vector3.back.normalized * _verticalInput * _velocity * Time.deltaTime);
+    }
+
+    private void KeepInBounds()
+    {
+        if (transform.position.x < -_borderCordinate)
+        {
+            transform.position = new Vector3(-_borderCordinate, transform.position.y, transform.position.z);
+        }
+        if (transform.position.x > _borderCordinate)
+        {
+            transform.position = new Vector3(_borderCordinate, transform.position.y, transform.position.z);
+        }
+        
+        if (transform.position.z < -_borderCordinate)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -_borderCordinate);
+        }
+        if (transform.position.z > _borderCordinate)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, _borderCordinate);
+        }
     }
 }
