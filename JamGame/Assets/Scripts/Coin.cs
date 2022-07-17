@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Coin : MonoBehaviour
 {
+    private AudioSource audioSource;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         Vector3 direction = Random.insideUnitSphere * 1.5f;
         direction.y = Mathf.Abs(direction.y) * 2;
         transform.GetComponent<Rigidbody>().AddForce(direction, ForceMode.Impulse);
@@ -15,7 +17,9 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            audioSource.Play();
             Destroy(gameObject);
         }
     }
+
 }

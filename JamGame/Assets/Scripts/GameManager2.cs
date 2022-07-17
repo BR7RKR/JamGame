@@ -9,7 +9,9 @@ public class GameManager2 : MonoBehaviour
     [SerializeField] private PickUpCoin _coinManager;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject pausePanel;
-    
+
+    private AudioSource audioSource;
+
     private bool isPaused;
     public static bool IsGameOver { get; private set; }
 
@@ -23,7 +25,7 @@ public class GameManager2 : MonoBehaviour
     
     private void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
         isPaused = false;
         gameOverPanel.SetActive(false);
         pausePanel.SetActive(false);
@@ -55,6 +57,7 @@ public class GameManager2 : MonoBehaviour
 
     public void GameOver()
     {
+        audioSource.Play();
         IsGameOver = true;
         Time.timeScale = 0.0f;
         gameOverPanel.SetActive(true);

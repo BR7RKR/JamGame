@@ -14,12 +14,27 @@ public class MovePlayer : MonoBehaviour
     [Tooltip("Settings")]
     public float _velocity = 10f;
 
+    private AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
-        if((_horizontalInput!=0||_verticalInput!=0) && !GameManager2.IsGameOver)
-            anim.SetBool("IsMoving",true);
+        if ((_horizontalInput != 0 || _verticalInput != 0) && !GameManager2.IsGameOver)
+        {
+            anim.SetBool("IsMoving", true);
+            if (!audioSource.isPlaying)
+                audioSource.Play();
+        }
         else
-            anim.SetBool("IsMoving",false);
+        {
+            anim.SetBool("IsMoving", false);
+            if (audioSource.isPlaying)
+                audioSource.Stop();
+        }
     }
 
     void FixedUpdate()

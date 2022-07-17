@@ -11,9 +11,11 @@ public class GunAttack : MonoBehaviour
     private GameObject vertelka;
     private WaitForSeconds AttackTimer;
     private Coroutine activeCoroutine;
+    private AudioSource audioSource;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         AttackTimer = new WaitForSeconds(attackTime);
         vertelka = GameObject.FindWithTag("PlayerMesh");
     }
@@ -37,6 +39,7 @@ public class GunAttack : MonoBehaviour
     private IEnumerator WaitForAttackToFinish()
     {
         Instantiate(bullet, bulletPosition.position, vertelka.transform.rotation);
+        audioSource.Play();
         yield return AttackTimer;
         activeCoroutine = null;
     }

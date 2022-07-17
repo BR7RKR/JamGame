@@ -3,11 +3,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private GameObject mesh;
     [SerializeField] private GameObject coinPrefab;
 
+    private AudioSource audioSource;
+
     [SerializeField] private Transform target;
-    
+    private Rigidbody rb;
+    private Vector3 direction;
+
     private float velocity = 3.5f;
     private float armor = 1.0f;
     private float _borderCordinate = 32;
@@ -16,24 +19,34 @@ public class Enemy : MonoBehaviour
     {
         if (!GameManager2.IsGameOver)
         {
+            audioSource = GetComponent<AudioSource>();
+            rb = GetComponent<Rigidbody>();
             if (target == null)
                 target = GameObject.FindGameObjectWithTag("Player").transform;
         }
     }
+    private void Update()
+    {
+        direction = target.position - transform.position;
+        direction.Normalize();
 
+        Vector3 lookAt = target.position;
+        lookAt.y = transform.position.y;
+        transform.LookAt(lookAt);
+    }
     private void FixedUpdate()
     {
         if (!GameManager2.IsGameOver)
         {
             if (Input.GetMouseButtonDown(0));
 
-            transform.Translate(Vector3.Normalize(target.position - transform.position) * velocity * Time.deltaTime);
-            mesh.transform.rotation = Quaternion.LookRotation(target.position - transform.position);
+            rb.MovePosition(transform.position + (direction * velocity * Time.deltaTime));
         }
     }
 
     private void Die()
     {
+        audioSource.Play();
         Instantiate(coinPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
