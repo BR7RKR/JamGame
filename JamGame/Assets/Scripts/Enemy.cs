@@ -81,7 +81,7 @@ public class Enemy : MonoBehaviour
     {
         if (GameManager.instance != null && !GameManager.instance.gameIsOver)
         {
-            GameManager.AddScore(scoreValue);
+            //GameManager.AddScore(scoreValue);
         }
     }
     

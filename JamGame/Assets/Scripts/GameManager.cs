@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
     // The script that manages all others
     public static GameManager instance = null;
 
-    [Tooltip("The UIManager component which manages the current scene's UI")]
-    public UIManager uiManager = null;
+    //[Tooltip("The UIManager component which manages the current scene's UI")]
+    //public UIManager uiManager = null;
 
     [Tooltip("The player gameobject")]
     public GameObject player = null;
@@ -139,23 +139,23 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void FigureOutHowManyEnemiesExist()
     {
-        List<EnemySpawner> enemySpawners = FindObjectsOfType<EnemySpawner>().ToList();
+        //List<EnemySpawner> enemySpawners = FindObjectsOfType<EnemySpawner>().ToList();
         List<Enemy> staticEnemies = FindObjectsOfType<Enemy>().ToList();
 
         int numberOfInfiniteSpawners = 0;
         int enemiesFromSpawners = 0;
         int enemiesFromStatic = staticEnemies.Count;
-        foreach(EnemySpawner enemySpawner in enemySpawners)
-        {
-            if (enemySpawner.spawnInfinite)
-            {
-                numberOfInfiniteSpawners += 1;
-            }
-            else
-            {
-                enemiesFromSpawners += enemySpawner.maxSpawn;
-            }
-        }
+        //foreach (EnemySpawner enemySpawner in enemySpawners)
+        //{
+        //    if (enemySpawner.spawnInfinite)
+        //    {
+        //        numberOfInfiniteSpawners += 1;
+        //    }
+        //    else
+        //    {
+        //        enemiesFromSpawners += enemySpawner.maxSpawn;
+        //    }
+        //}
         numberOfEnemiesFoundAtStart = enemiesFromSpawners + enemiesFromStatic;
 
         if (gameIsWinnable)
@@ -288,9 +288,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static void UpdateUIElements()
     {
-        if (instance != null && instance.uiManager != null)
+        //if (instance != null && instance.uiManager != null)
         {
-            instance.uiManager.UpdateUI();
+            //instance.uiManager.UpdateUI();
         }
     }
 
@@ -305,16 +305,16 @@ public class GameManager : MonoBehaviour
     public void LevelCleared()
     {
         PlayerPrefs.SetInt("score", score);
-        if (uiManager != null)
-        {
-            player.SetActive(false);
-            uiManager.allowPause = false;
-            uiManager.GoToPage(gameVictoryPageIndex);
-            if (victoryEffect != null)
-            {
-                Instantiate(victoryEffect, transform.position, transform.rotation, null);
-            }
-        }     
+        //if (uiManager != null)
+        //{
+        //    player.SetActive(false);
+        //    uiManager.allowPause = false;
+        //    uiManager.GoToPage(gameVictoryPageIndex);
+        //    if (victoryEffect != null)
+        //    {
+        //        Instantiate(victoryEffect, transform.position, transform.rotation, null);
+        //    }
+        //}     
     }
 
     [Header("Game Over Settings:")]
@@ -342,10 +342,10 @@ public class GameManager : MonoBehaviour
         {
             Instantiate(gameOverEffect, transform.position, transform.rotation, null);
         }
-        if (uiManager != null)
-        {
-            uiManager.allowPause = false;
-            uiManager.GoToPage(gameOverPageIndex);
-        }
+        //if (uiManager != null)
+        //{
+        //    uiManager.allowPause = false;
+        //    uiManager.GoToPage(gameOverPageIndex);
+        //}
     }
 }
