@@ -1649,6 +1649,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1548113045220376357, guid: 59221f1d989fe254a8fd4a1deda3127d, type: 3}
   m_PrefabInstance: {fileID: 1548113045656378048}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &549051983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 549051984}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &549051984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549051983}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.20637149, y: 1.1438293, z: -2.1489375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &557394796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7807,9 +7838,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Coins: {fileID: 1944145386}
-  _filler: {fileID: 186720282}
-  levelText: {fileID: 1321489038}
-  coinsAmount: {fileID: 1810657726}
+  _filler: {fileID: 0}
+  levelText: {fileID: 0}
+  coinsAmount: {fileID: 0}
 --- !u!114 &2135420976
 MonoBehaviour:
   m_ObjectHideFlags: 0
