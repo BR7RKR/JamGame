@@ -66,5 +66,5 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private Vector3 SetSpawnPosition() => new Vector3(Random.Range(-27, 30), 1.8f, Random.Range(-35, 25));
+    private Vector3 SetSpawnPosition() => new Vector3(Random.Range(-30, 30), 1.8f, Random.Range(-30, 30));
 }
