@@ -5805,15 +5805,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99f930f59a51f884ab67784c4a4e4703, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.4648412
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99f930f59a51f884ab67784c4a4e4703, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.023232644
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99f930f59a51f884ab67784c4a4e4703, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.98932034
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 99f930f59a51f884ab67784c4a4e4703, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9084,7 +9084,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 759931929505475781}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.45, y: -0.28518, z: -3.43}
+  m_LocalPosition: {x: 0, y: -0.28518, z: 0}
   m_LocalScale: {x: 6583.3623, y: 139.51984, z: 6583.3623}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9103,6 +9103,7 @@ GameObject:
   - component: {fileID: 3922592573182048730}
   - component: {fileID: 1264155112155712784}
   - component: {fileID: 3922592573182048731}
+  - component: {fileID: 3922592573182048732}
   m_Layer: 0
   m_Name: floor
   m_TagString: Untagged
@@ -9251,3 +9252,15 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7513297493162946847, guid: 99f930f59a51f884ab67784c4a4e4703, type: 3}
+--- !u!114 &3922592573182048732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759931929505475781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53053fb0064589e4992b234f4fee5aa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
