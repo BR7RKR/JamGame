@@ -117,15 +117,15 @@ public class Health : MonoBehaviour
 
         if (useLives)
         {
-            HandleDeathWithLives();
+            //HandleDeathWithLives();
         }
         else
         {
-            HandleDeathWithoutLives();
+            //HandleDeathWithoutLives();
         }      
     }
     
-    void HandleDeathWithLives()
+    /*void HandleDeathWithLives()
     {
         currentLives -= 1;
         if (currentLives > 0)
@@ -157,5 +157,5 @@ public class Health : MonoBehaviour
             gameObject.GetComponent<Enemy>().DoBeforeDestroy();
         }
         Destroy(this.gameObject);
-    }
+    }*/
 }
