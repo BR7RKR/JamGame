@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager2 : MonoBehaviour
 {
@@ -44,23 +45,15 @@ public class GameManager2 : MonoBehaviour
 
     public void Pause()
     {
-        isPaused = true;
-        Time.timeScale = 0.0f;
-        pausePanel.SetActive(true);
     }
     public void Continue()
     {
-        isPaused = false;
-        Time.timeScale = 1.0f;
-        pausePanel.SetActive(false);
     }
 
     public void GameOver()
     {
-        audioSource.Play();
         IsGameOver = true;
-        Time.timeScale = 0.0f;
-        gameOverPanel.SetActive(true);
+        SceneManager.LoadScene("MainMenu");
     }
     private void SaveCoins()
     {

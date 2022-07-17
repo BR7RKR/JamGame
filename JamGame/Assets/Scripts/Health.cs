@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    [SerializeField] private GameObject coinPrefab;
     [Header("Team Settings")]
     [Tooltip("The team associated with this damage")]
     public int teamId = 0;
@@ -156,6 +157,7 @@ public class Health : MonoBehaviour
         {
             gameObject.GetComponent<Enemy>().DoBeforeDestroy();
         }
+        Instantiate(coinPrefab, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 }

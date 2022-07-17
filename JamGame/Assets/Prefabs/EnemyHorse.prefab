@@ -148,8 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d0b4e2e02801544801029b7c78d0e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 940317991431315117}
-  coinPrefab: {fileID: 2464374453467750899, guid: 2901ba9ad68684d459bab57c86a5f146, type: 3}
   target: {fileID: 0}
 --- !u!114 &-1636137002523527982
 MonoBehaviour:
@@ -182,10 +180,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a282c1e0dc4117b4aba9376dd631639b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinPrefab: {fileID: 2464374453467750899, guid: 2901ba9ad68684d459bab57c86a5f146, type: 3}
   teamId: 1
-  defaultHealth: 60
-  maxHealth: 60
-  currentHealth: 60
+  defaultHealth: 110
+  maxHealth: 110
+  currentHealth: 110
   invincibilityTime: 0
   isAlwaysInvincible: 0
   useLives: 0
@@ -204,5 +203,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.021813354, y: 0.03458577, z: 0.020931082}
-  m_Center: {x: 0.0014270783, y: 0.01663259, z: -0.00054176804}
+  m_Size: {x: 0.021813354, y: 0.05629686, z: 0.020931082}
+  m_Center: {x: 0.0014270783, y: 0.02748813, z: -0.00054176804}

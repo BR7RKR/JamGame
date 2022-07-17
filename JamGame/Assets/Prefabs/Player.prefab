@@ -96,10 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd13503b0c54514fa34d2e1abcf6def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackingCooldown: 0
-  bulletPrefab: {fileID: 8137191507197824295, guid: d5a54bbd921284242a9f9a610a0adc4f, type: 3}
-  bulletPositionRotation: {fileID: 1548113045220376357}
-  actualBulletPosition: {fileID: 1548113045591136308}
+  gunPosition: {fileID: 0}
   head: {fileID: 883282636573909606}
 --- !u!114 &4495660112377693432
 MonoBehaviour:
@@ -129,11 +126,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ff20489a309f9644a7e4ad786969224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunShooting: {fileID: 0}
   plmv: {fileID: 0}
   anim: {fileID: 6530817818563180572}
   reloadCooldown: 0
+  reloadsCount: 1
   bullets:
   - {fileID: 8137191507197824295, guid: d5a54bbd921284242a9f9a610a0adc4f, type: 3}
+  number: 0
 --- !u!114 &1592229609897417188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teamId: 0
   defaultHealth: 60
-  maxHealth: 80
+  maxHealth: 100
   currentHealth: 60
   invincibilityTime: 2
   isAlwaysInvincible: 0

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private GameObject coinPrefab;
+
 
     private AudioSource audioSource;
 
@@ -46,9 +46,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        audioSource.Play();
-        Instantiate(coinPrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+
     }
     
     private void KeepInBounds()
