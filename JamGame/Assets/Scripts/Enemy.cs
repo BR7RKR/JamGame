@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     
     private float velocity = 3.5f;
     private float armor = 1.0f;
+    private float _borderCordinate = 32;
 
     private void Start()
     {
@@ -20,7 +21,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!GameManager2.IsGameOver)
         {
@@ -35,6 +36,27 @@ public class Enemy : MonoBehaviour
     {
         Instantiate(coinPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+    
+    private void KeepInBounds()
+    {
+        if (transform.position.x < -_borderCordinate)
+        {
+            transform.position = new Vector3(-_borderCordinate, transform.position.y, transform.position.z);
+        }
+        if (transform.position.x > _borderCordinate)
+        {
+            transform.position = new Vector3(_borderCordinate, transform.position.y, transform.position.z);
+        }
+        
+        if (transform.position.z < -_borderCordinate)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -_borderCordinate);
+        }
+        if (transform.position.z > _borderCordinate)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, _borderCordinate);
+        }
     }
 
     public void DoBeforeDestroy()

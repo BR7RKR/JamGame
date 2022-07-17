@@ -9322,7 +9322,6 @@ GameObject:
   - component: {fileID: 3922592573182048730}
   - component: {fileID: 1264155112155712784}
   - component: {fileID: 3922592573182048731}
-  - component: {fileID: 3922592573182048732}
   m_Layer: 0
   m_Name: floor
   m_TagString: Untagged
@@ -9443,6 +9442,10 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1548113044368525704, guid: 59221f1d989fe254a8fd4a1deda3127d, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4495660112377693432, guid: 59221f1d989fe254a8fd4a1deda3127d, type: 3}
       propertyPath: levelUpMenu
       value: 
@@ -9471,18 +9474,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7513297493162946847, guid: 99f930f59a51f884ab67784c4a4e4703, type: 3}
---- !u!114 &3922592573182048732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 759931929505475781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53053fb0064589e4992b234f4fee5aa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7566103635506573775
 PrefabInstance:
   m_ObjectHideFlags: 0
