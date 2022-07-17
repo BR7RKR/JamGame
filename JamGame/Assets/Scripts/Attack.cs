@@ -44,6 +44,6 @@ public class Attack : MonoBehaviour
         Vector2Int _halfScreenDims = new Vector2Int(Screen.width / 2, Screen.height / 2);
         Vector2 mouseDirection = new Vector2(Input.mousePosition.x - _halfScreenDims.x, Input.mousePosition.y - _halfScreenDims.y);
         
-        head.transform.localEulerAngles =  new Vector3(0, Vector3.SignedAngle(mouseDirection,Vector3.up,Vector3.forward)+110f, 0);
+        head.transform.localEulerAngles =  new Vector3(0, Vector3.SignedAngle(mouseDirection,Vector3.up,Vector3.forward)-110f, 0);
     }
 }
