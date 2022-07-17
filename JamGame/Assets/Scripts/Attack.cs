@@ -55,7 +55,7 @@ public class Attack : MonoBehaviour
         Vector2 mouseDirection = new Vector2(Input.mousePosition.x - _halfScreenDims.x, Input.mousePosition.y - _halfScreenDims.y);
 
         bulletPositionRotation.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        bulletPositionRotation.transform.localEulerAngles = new Vector3(0, Vector3.SignedAngle(mouseDirection,Vector3.up,Vector3.forward)-90f, 0);
+        bulletPositionRotation.transform.localEulerAngles = new Vector3(0, Vector3.SignedAngle(mouseDirection,Vector3.up,Vector3.forward)+110f, 0);
         head.rotation = bulletPositionRotation.rotation;
     }
     
