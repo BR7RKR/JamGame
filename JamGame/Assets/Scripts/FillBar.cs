@@ -8,11 +8,13 @@ using UnityEngine.UI;
 
 public class FillBar : MonoBehaviour
 {
-    [Header("Settings")]
+    [Header("Settings")] 
+    [SerializeField] private PlayersArmory _Armory;
     [SerializeField] private PickUpCoin _Coins;
     [SerializeField] private Image _filler;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI coinsAmount;
+    [SerializeField] private TextMeshProUGUI reloadsAmount;
 
     void Update()
     {
@@ -27,7 +29,8 @@ public class FillBar : MonoBehaviour
 
     private void SetLevelInfo()
     {
-        levelText.text = "LV:" + _Coins.level.ToString();
+        levelText.text = "LV:" + _Coins.level;
         coinsAmount.text = _Coins.totalCoins.ToString();
+        reloadsAmount.text = "Reloads:" + _Armory.reloadsCount;
     }
 }

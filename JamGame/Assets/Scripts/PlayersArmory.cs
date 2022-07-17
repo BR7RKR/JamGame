@@ -10,9 +10,10 @@ public class PlayersArmory : MonoBehaviour
     [SerializeField] private MovePlayer plmv;
     [SerializeField] private Animator anim;
     [SerializeField] private float reloadCooldown = 0f;
-    private int reloadsCount = 1;
+    public int reloadsCount = 1;
     public GameObject[] bullets;
     private WaitForSeconds cd;
+    public int number;
 
     private void Awake()
     {
@@ -39,7 +40,8 @@ public class PlayersArmory : MonoBehaviour
             if (reloadsCount > 0)
             {
                 StartCoroutine(AnimationSwapping());
-                ShootingBullet = bullets[Random.Range(0,bullets.Length)];
+                number = Random.Range(0, bullets.Length);
+                ShootingBullet = bullets[number];
                 reloadsCount--;
                 gunShooting = ShootingBullet;
                 return ShootingBullet;

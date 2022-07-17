@@ -381,7 +381,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6362209380262277515}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.00872, y: 0.02261, z: -0}
+  m_LocalPosition: {x: 0.00872, y: 0.02167, z: -0}
   m_LocalScale: {x: 0.019999994, y: 0.019999998, z: 0.020000003}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -417,7 +417,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6362209381956707602}
-  m_LocalRotation: {x: -0, y: 0.97303134, z: -0, w: 0.23067306}
+  m_LocalRotation: {x: 0, y: 0.9730321, z: 0, w: 0.23066977}
   m_LocalPosition: {x: 4.79, y: -0.09, z: -3.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -484,6 +484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunPosition: {fileID: 6362209380262277512}
   head: {fileID: 4716702320334851824}
+  gun: {fileID: 0}
 --- !u!114 &8310496084681664622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,6 +517,7 @@ MonoBehaviour:
   plmv: {fileID: 0}
   anim: {fileID: 1699329381550003338}
   reloadCooldown: 0
+  reloadsCount: 1
   bullets:
   - {fileID: 7345955566281835956, guid: e24c0ad0f5a08c943a9d69f0a3c585c6, type: 3}
   - {fileID: 8465257637119299983, guid: 6220c841478bd4046ac721934ed030e1, type: 3}
