@@ -117,15 +117,15 @@ public class Health : MonoBehaviour
 
         if (useLives)
         {
-            //HandleDeathWithLives();
+            HandleDeathWithLives();
         }
         else
         {
-            //HandleDeathWithoutLives();
+            HandleDeathWithoutLives();
         }      
     }
     
-    /*void HandleDeathWithLives()
+    void HandleDeathWithLives()
     {
         currentLives -= 1;
         if (currentLives > 0)
@@ -134,9 +134,9 @@ public class Health : MonoBehaviour
         }
         else
         {
-            if (gameObject.tag == "Player" && GameManager.instance != null)
+            if (gameObject.tag == "Player" && GameManager2.instance != null)
             {
-                GameManager.instance.GameOver();
+                GameManager2.instance.GameOver();
             }
             if (gameObject.GetComponent<Enemy>() != null)
             {
@@ -148,14 +148,14 @@ public class Health : MonoBehaviour
     
     void HandleDeathWithoutLives()
     {
-        if (gameObject.tag == "Player" && GameManager.instance != null)
+        if (gameObject.tag == "Player" && GameManager2.instance != null)
         {
-            GameManager.instance.GameOver();
+            GameManager2.instance.GameOver();
         }
         if (gameObject.GetComponent<Enemy>() != null)
         {
             gameObject.GetComponent<Enemy>().DoBeforeDestroy();
         }
         Destroy(this.gameObject);
-    }*/
+    }
 }

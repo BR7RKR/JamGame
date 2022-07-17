@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,8 +21,8 @@ public class Damage : MonoBehaviour
     public bool destroyAfterDamage = true;
     [Tooltip("Whether or not to apply damage when triggers collide")]
     public bool dealDamageOnTriggerEnter = false;
-    [Tooltip("Whether or not to apply damage when triggers stay, for damage over time")]
-    public bool dealDamageOnTriggerStay = false;
+    [Tooltip("Whether or not to apply damage when collision stay, for damage over time")]
+    public bool dealDamageOnCollisionStay = false;
     [Tooltip("Whether or not to apply damage on non-trigger collider collisions")]
     public bool dealDamageOnCollision = false;
 
@@ -41,19 +42,10 @@ public class Damage : MonoBehaviour
             DealDamage(collision.gameObject);
         }
     }
-
-    /// <summary>
-    /// Description:
-    /// Standard Unity function called every frame a Collider2D stays in any attached 2D trigger collider
-    /// Inputs:
-    /// Collider2D collision
-    /// Returns:
-    /// void (no return)
-    /// </summary>
-    /// <param name="collision">The Collider2D that set of the function call</param>
-    private void OnTriggerStay(Collider collision)
+    
+    private void OnCollisionStay(Collision collision)
     {
-        if (dealDamageOnTriggerStay)
+        if (dealDamageOnCollisionStay)
         {
             DealDamage(collision.gameObject);
         }
@@ -61,13 +53,13 @@ public class Damage : MonoBehaviour
 
     /// <summary>
     /// Description:
-    /// Standard Unity function called when a Collider2D hits another Collider2D (non-triggers)
+    /// Standard Unity function called when a Collider hits another Collider2D (non-triggers)
     /// Inputs:
     /// Collision2D collision
     /// Returns:
     /// void (no return)
     /// </summary>
-    /// <param name="collision">The Collision2D that set of the function call</param>
+    /// <param name="collision">The Collision that set of the function call</param>
     private void OnCollisionEnter(Collision collision)
     {
         if (dealDamageOnCollision)

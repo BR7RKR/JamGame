@@ -92,9 +92,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2238662881548549188}
-  - component: {fileID: 5353953106211170072}
   - component: {fileID: 5353953106211170071}
   - component: {fileID: 5353953106211170070}
+  - component: {fileID: -1636137002523527982}
+  - component: {fileID: -1166501154287036029}
+  - component: {fileID: 5205916640543080247}
   m_Layer: 0
   m_Name: EnemyHorse
   m_TagString: Untagged
@@ -118,20 +120,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &5353953106211170072
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5243554154503316605}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6099800089077584851, guid: 3ac0f8e37a703604995a039672eb85f4, type: 3}
 --- !u!54 &5353953106211170071
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -163,3 +151,58 @@ MonoBehaviour:
   mesh: {fileID: 940317991431315117}
   coinPrefab: {fileID: 2464374453467750899, guid: 2901ba9ad68684d459bab57c86a5f146, type: 3}
   target: {fileID: 0}
+--- !u!114 &-1636137002523527982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5243554154503316605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cadb49f8152e2db4694e446bc041528d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamId: 1
+  damageAmount: 30
+  hitEffect: {fileID: 0}
+  destroyAfterDamage: 0
+  dealDamageOnTriggerEnter: 0
+  dealDamageOnCollisionStay: 1
+  dealDamageOnCollision: 1
+--- !u!114 &-1166501154287036029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5243554154503316605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a282c1e0dc4117b4aba9376dd631639b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamId: 1
+  defaultHealth: 60
+  maxHealth: 60
+  currentHealth: 60
+  invincibilityTime: 0
+  isAlwaysInvincible: 0
+  useLives: 0
+  currentLives: 3
+  maxLives: 5
+  deathEffect: {fileID: 0}
+  hitEffect: {fileID: 0}
+--- !u!65 &5205916640543080247
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5243554154503316605}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.021813354, y: 0.03458577, z: 0.020931082}
+  m_Center: {x: 0.0014270783, y: 0.01663259, z: -0.00054176804}
