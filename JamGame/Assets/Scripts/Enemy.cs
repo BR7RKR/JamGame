@@ -70,4 +70,26 @@ public class Enemy : MonoBehaviour
             canAttack = false;
         }
     }
+    
+    public void DoBeforeDestroy()
+    {
+        AddToScore();
+        IncrementEnemiesDefeated();
+    }
+    
+    private void AddToScore()
+    {
+        if (GameManager.instance != null && !GameManager.instance.gameIsOver)
+        {
+            GameManager.AddScore(scoreValue);
+        }
+    }
+    
+    private void IncrementEnemiesDefeated()
+    {
+        if (GameManager.instance != null && !GameManager.instance.gameIsOver)
+        {
+            GameManager.instance.IncrementEnemiesDefeated();
+        }       
+    }
 }
